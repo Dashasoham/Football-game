@@ -90,3 +90,26 @@ team1 < team2 ? console.log(`team1 wins`) : console.log(`team2 wins`);
 
 team1 < team2 && console.log("TEAM1");
 team1 > team2 && console.log("TEAM2");
+
+console.log("-----CHALLENGE #2-------");
+//1
+const goals = [...game.scored];
+console.log(goals);
+
+for (const [i, goalScored] of goals.entries()) {
+  console.log(`Goal ${i + 1}:${goalScored}`);
+}
+//
+
+const oddsAll = Object.values(game.odds);
+
+let average = 0;
+oddsAll.forEach((number) => {
+  average += number / 3;
+});
+
+console.log(average);
+
+for (const [key, { team1 }] of oddsAll) {
+  console.log(`Odd of victory ${team1}: ${key}`);
+}
