@@ -40,34 +40,53 @@ const game = {
     team2: 6.5,
   },
 };
+//1.
+const [players1, players2] = game.players;
+console.log(players1, players2);
 
-let players1 = game.players[0];
-let players2 = game.players[1];
+//2.
 
-let gkTeam1 = players1[0];
-// let fieldPlayersTeam = players1.shift();
-// let fieldPlayersTeam1 = players1.slice(1);
-ls = [1, 2, 3]
+const [gk, ...fieldPlayersTeam1] = players1;
+console.log(gk, fieldPlayersTeam1);
 
-[first, ...others] = ls
-console.log(ls);
-// const [, ...rest] = fieldPlayersTeam1;
-console.log(players2);
+//3.
+console.log("-----ALL PLAYERS-----");
 
-console.log(gkTeam1);
-// console.log(players1.shift());
-// console.log(fieldPlayersTeam);
-console.log(fieldPlayersTeam1);
+let allPlayers = [...players1, ...players2];
+console.log(...allPlayers);
 
-// let array = [1, 2, 3];
+//4.
+console.log("----TEAM! ADDITION-----");
+let players1Final = [...players1, "Thiago", "Coutinho", "Perisic"];
+console.log(players1Final);
 
-// const shiftFunction = (array) => {
-//   const removedItem = array[0];
-//   //....
-//   // remove 1 from array
-//   //....
-//   return removedItem;
-// };
+//5.
+console.log("----DESTRUCTURING OBJECT----");
+console.log("----ODDS-----");
 
-// shiftFunction(array);
-// console.log();
+const { team1, x: draw, team2 } = game.odds;
+console.log(team1, draw, team2);
+
+//6.
+
+function printGoals(...players) {
+  console.log(`${players.length} goals were scored`);
+  console.log(`${players[0]} scored goals`);
+  console.log(`${players[1]} scored goals`);
+}
+
+printGoals("Lewandowski", "Gnarby", "Lewandowski", "Hummels");
+printGoals(...game.scored);
+
+//6.
+
+if (team1 < team2) {
+  console.log("Team1 wins");
+} else {
+  console.log("Team2wins");
+}
+
+team1 < team2 ? console.log(`team1 wins`) : console.log(`team2 wins`);
+
+team1 < team2 && console.log("TEAM1");
+team1 > team2 && console.log("TEAM2");
