@@ -116,24 +116,34 @@ for (const odd of Object.values(game.odds)) {
 console.log(average);
 console.log("-----CHALLENGE 4-----");
 
-// const oddsAll = Object.values(game.odds);
+// const oddsAll = Object.entries(game.odds);
 // console.log(oddsAll);
 
-// for (const key of oddsAll) {
-//   console.log(`Odd of victory ${game.team1}: ${key}`);
-//   console.log(`Odd of victory ${game.team2}: ${key}`);
+// for (const [team, odd] of oddsAll) {
+//   console.log(`Odd of victory ${team}: ${odd}`);
 // }
 
 const teamOdds = game.odds;
+console.log(teamOdds);
+
 // const first = "team1";
 // console.log(game.first);
 // console.log(game[first]);
 // game[first] === game.team1;
 
-// for (const key in teamOdds) {
-//   console.log(`odds of ${game[key] ?? "draw"}: ${teamOdds[key]}`);
+for (const key in teamOdds) {
+  console.log(`odds of ${game[key] ?? "draw"}: ${teamOdds[key]}`);
+}
+
+// for (const key in game.odds) {
+//   console.log(`odds of ${game[key] ?? "draw"}: ${game.odds[key]}`);
 // }
 
-for (let key in game.odds) {
-  console.log(`odds of ${game[key] ?? "draw"}: ${game.odds[key]}`);
+console.log("---CHALLENGE 4------");
+let scorers = {};
+
+for (const player of game.scored) {
+  //THE CONDITIONAL(TERNARY) OPERATOR(PAGE 9)
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
 }
+console.log(scorers);
